@@ -37,6 +37,7 @@ services:
     devices:
       - /dev/zigbee:/dev/zigbee
     volumes:
+      - ./compose/log/zigbee2mqtt:/app/log
       - ./compose/data/zigbee2mqtt:/app/data
       - /run/udev:/run/udev:ro
     ports:
