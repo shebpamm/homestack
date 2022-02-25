@@ -4,6 +4,8 @@ services:
     image: eclipse-mosquitto:latest
     restart: always
     user: root:root
+    environment:
+      - TZ=${TIMEZONE}
     volumes:
       - ./compose/conf/mosquitto:/mosquitto/config
       - ./compose/data/mosquitto:/mosquitto/data
@@ -19,6 +21,8 @@ services:
     restart: always
     tty: true
     stop_signal: SIGINT
+    environment:
+      - TZ=${TIMEZONE}
     networks:
       - home
     devices:
@@ -32,6 +36,8 @@ services:
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt:latest
     restart: always
+    environment:
+      - TZ=${TIMEZONE}
     networks:
       - home
     devices:
@@ -47,6 +53,8 @@ services:
     image: nodered/node-red:latest
     restart: always
     user: root:root
+    environment:
+      - TZ=${TIMEZONE}
     networks:
       - home
     volumes:
