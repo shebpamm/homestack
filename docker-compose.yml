@@ -73,6 +73,13 @@ services:
     ports:
       - "8123:8123"
 
+  duckdns:
+    image: lscr.io/linuxserver/duckdns
+    environment:
+      - TZ=${TIMEZONE}
+      - SUBDOMAINS=${DUCKDNS_SUBDOMAINS}
+      - TOKEN=${DUCKDNS_TOKEN}
+      - LOG_FILE=false
 
 networks:
   home:
